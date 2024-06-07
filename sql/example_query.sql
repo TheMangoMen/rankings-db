@@ -1,7 +1,8 @@
 select
     userid,
     name,
-    ranking,
+    EmployerRanking,
+    UserRanking,
     company,
     jobtitle
 from

@@ -8,5 +8,6 @@ cd scripts
 ./create_db.sh
 ./create_admin_user.sh
 ./create_tables.sh
+./create_constraints.sh
 
 ./run_example.sh

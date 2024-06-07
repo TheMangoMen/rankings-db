@@ -16,7 +16,8 @@ CREATE TABLE Users (
 CREATE TABLE Rankings (
     UserId TEXT,
     JobId INT,
-    Ranking INT,
+    UserRanking INT,
+    EmployerRanking TEXT,
     PRIMARY KEY (UserId, JobId),
     FOREIGN KEY (UserId) REFERENCES Users(UserId),
     FOREIGN KEY (JobId) REFERENCES Jobs(JobId)
