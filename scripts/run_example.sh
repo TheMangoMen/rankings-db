@@ -1,0 +1,1 @@
+psql -U $DB_USER -d $DB_NAME -f ../sql/example_query.sql
