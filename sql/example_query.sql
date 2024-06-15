@@ -4,10 +4,7 @@ select
     Company,
     Location,
     Openings
-from
-    users NATURAL
-    JOIN rankings NATURAL
-    JOIN jobs
+from jobs
 ORDER BY
     JID;
 
