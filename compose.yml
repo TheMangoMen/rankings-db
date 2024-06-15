@@ -1,15 +1,17 @@
 # docker compose up -d
-# psql -h localhost -p 5432 -U postgres
+# psql -h localhost -p 5432 -U <DB_USER> -d <DB_NAME>
 # \i setup.sh
+# docker compose down
+# rm -rf dbdata
 version: '3.8'
 
 services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: rankings
-      POSTGRES_USER: norman
-      POSTGRES_PASSWORD: password
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./dbdata:/var/lib/postgresql/data
     ports:
