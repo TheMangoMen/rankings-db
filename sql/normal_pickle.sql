@@ -9,6 +9,11 @@ insert into
 values
     ('njchen');
 
+select
+    *
+from
+    Contributions;
+
 INSERT INTO
     Contributions (UID, JID, OA, InterviewStage, OfferCall)
 VALUES
@@ -18,6 +23,26 @@ SET
     OA = EXCLUDED.OA,
     InterviewStage = EXCLUDED.InterviewStage,
     OfferCall = EXCLUDED.OfferCall;
+
+select
+    *
+from
+    Contributions;
+
+INSERT INTO
+    Contributions (UID, JID, OA, InterviewStage, OfferCall)
+VALUES
+    ('njchen', 362791, TRUE, 3, TRUE) ON CONFLICT (UID, JID) DO
+UPDATE
+SET
+    OA = EXCLUDED.OA,
+    InterviewStage = EXCLUDED.InterviewStage,
+    OfferCall = EXCLUDED.OfferCall;
+
+select
+    *
+from
+    Contributions;
 
 INSERT INTO
     Watching (UID, JID)
@@ -33,4 +58,8 @@ WHERE
 INSERT INTO
     Rankings (UID, JID, UserRanking, EmployerRanking)
 VALUES
-    ('njchen', 383229, 8, 'Offer');
+    ('njchen', 383229, 8, 'Offer') ON CONFLICT (UID, JID) DO
+UPDATE
+SET
+    UserRanking = EXCLUDED.UserRanking,
+    EmployerRanking = EXCLUDED.EmployerRanking;
