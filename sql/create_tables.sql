@@ -1,5 +1,7 @@
 begin;
 
+DROP TYPE IF EXISTS SeasonEnum;
+
 CREATE TYPE SeasonEnum as ENUM ('Fall', 'Spring', 'Winter');
 
 CREATE TABLE Jobs (
@@ -28,27 +30,15 @@ CREATE TABLE Admins (
 
 CREATE TABLE Watching (
     UID VARCHAR(50) NOT NULL,
-    JID VARCHAR(50) NOT NULL,
+    JID INT NOT NULL,
     PRIMARY KEY (UID, JID),
     FOREIGN KEY (UID) REFERENCES Users(UID) ON DELETE CASCADE,
     FOREIGN KEY (JID) REFERENCES Jobs(JID) ON DELETE CASCADE
 );
 
-CREATE TYPE EmployerRankingEnum as ENUM ('Offer', 'Ranked');
+DROP TYPE IF EXISTS EmployerRankingEnum;
 
-CREATE TABLE Rankings (
-    UID VARCHAR(50) NOT NULL,
-    JID INT NOT NULL,
-    UserRanking INT NOT NULL,
-    EmployerRanking EmployerRankingEnum NOT NULL,
-    PRIMARY KEY (UID, JID),
-    FOREIGN KEY (UID) REFERENCES Users(UID) ON DELETE CASCADE,
-    FOREIGN KEY (JID) REFERENCES Jobs(JID) ON DELETE CASCADE,
-    CHECK (
-        UserRanking >= -1
-        AND UserRanking <= 10
-    )
-);
+CREATE TYPE EmployerRankingEnum as ENUM ('Offer', 'Ranked');
 
 -- TODO: add trigger
 CREATE TABLE Contributions (
@@ -63,6 +53,20 @@ CREATE TABLE Contributions (
     CHECK (
         InterviewStage >= 0
         AND InterviewStage <= 3
+    )
+);
+
+CREATE TABLE Rankings (
+    UID VARCHAR(50) NOT NULL,
+    JID INT NOT NULL,
+    UserRanking INT NOT NULL,
+    EmployerRanking EmployerRankingEnum NOT NULL,
+    PRIMARY KEY (UID, JID),
+    FOREIGN KEY (UID) REFERENCES Users(UID) ON DELETE CASCADE,
+    FOREIGN KEY (JID) REFERENCES Jobs(JID) ON DELETE CASCADE,
+    CHECK (
+        UserRanking >= -1
+        AND UserRanking <= 10
     )
 );
 
