@@ -41,6 +41,7 @@ DROP TYPE IF EXISTS EmployerRankingEnum;
 CREATE TYPE EmployerRankingEnum as ENUM ('Offer', 'Ranked');
 
 -- TODO: add trigger
+
 CREATE TABLE Contributions (
     UID VARCHAR(50) NOT NULL,
     JID INT NOT NULL,
@@ -55,6 +56,15 @@ CREATE TABLE Contributions (
         AND InterviewStage <= 3
     )
 );
+
+CREATE TRIGGER delete_unsuccessful_contributions
+AFTER INSERT OR UPDATE ON Contributions
+FOR EACH ROW
+BEGIN
+    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = 0 THEN
+        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
+    END IF;
+END;
 
 CREATE TABLE Rankings (
     UID VARCHAR(50) NOT NULL,
