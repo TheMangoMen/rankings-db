@@ -10,3 +10,4 @@ cd scripts
 ./create_tables.sh
 
 ./run_example.sh
+
