@@ -55,14 +55,20 @@ CREATE TABLE Contributions (
     )
 );
 
--- CREATE TRIGGER delete_unsuccessful_contributions
--- AFTER INSERT OR UPDATE ON Contributions
--- FOR EACH ROW
--- BEGIN
---    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = 0 THEN
---        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
---    END IF;
--- END;
+CREATE OR REPLACE FUNCTION delete_unsuccessful_contributions()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = FALSE THEN
+        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER delete_unsuccessful_contributions
+AFTER INSERT OR UPDATE ON Contributions
+FOR EACH ROW
+EXECUTE FUNCTION delete_unsuccessful_contributions();
 
 CREATE TABLE Rankings (
     UID VARCHAR(50) NOT NULL,
