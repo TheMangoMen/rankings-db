@@ -6,8 +6,8 @@ CREATE TYPE SeasonEnum as ENUM ('Fall', 'Spring', 'Winter');
 
 CREATE TABLE Jobs (
     JID INT PRIMARY KEY,
-    Title VARCHAR(255) NOT NULL,
     Company VARCHAR(255) NOT NULL,
+    Title VARCHAR(255) NOT NULL,
     Location VARCHAR(255),
     Openings INT NOT NULL,
     Season SeasonEnum NOT NULL,
@@ -55,14 +55,14 @@ CREATE TABLE Contributions (
     )
 );
 
-CREATE TRIGGER delete_unsuccessful_contributions
-AFTER INSERT OR UPDATE ON Contributions
-FOR EACH ROW
-BEGIN
-    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = 0 THEN
-        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
-    END IF;
-END;
+-- CREATE TRIGGER delete_unsuccessful_contributions
+-- AFTER INSERT OR UPDATE ON Contributions
+-- FOR EACH ROW
+-- BEGIN
+--    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = 0 THEN
+--        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
+--    END IF;
+-- END;
 
 CREATE TABLE Rankings (
     UID VARCHAR(50) NOT NULL,
@@ -77,5 +77,30 @@ CREATE TABLE Rankings (
         AND UserRanking <= 10
     )
 );
+
+CREATE TABLE Stage (
+    IsRankingStage BOOLEAN NOT NULL
+);
+
+CREATE OR REPLACE FUNCTION enforce_single_row()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF (SELECT COUNT(*) FROM Stage) >= 1 THEN
+        RAISE EXCEPTION 'Only one row is allowed in the Stage table';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER single_row_trigger
+BEFORE INSERT ON Stage
+FOR EACH ROW
+EXECUTE FUNCTION enforce_single_row();
+
+INSERT INTO Stage (IsRankingStage) VALUES (true);
+
+UPDATE Stage SET IsRankingStage = false;
+UPDATE Stage SET IsRankingStage = true;
+UPDATE Stage SET IsRankingStage = false;
 
 commit;
