@@ -1,6 +1,5 @@
 # docker compose up -d
 # psql -h localhost -p 5432 -U <DB_USER> -d <DB_NAME>
-# \i setup.sh
 # docker compose down
 # rm -rf dbdata
 version: '3.8'

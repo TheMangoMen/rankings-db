@@ -40,8 +40,6 @@ DROP TYPE IF EXISTS EmployerRankingEnum;
 
 CREATE TYPE EmployerRankingEnum as ENUM ('Offer', 'Ranked');
 
--- TODO: add trigger
-
 CREATE TABLE Contributions (
     UID VARCHAR(50) NOT NULL,
     JID INT NOT NULL,
