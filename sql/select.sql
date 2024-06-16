@@ -10,5 +10,5 @@ goodjobs as (
 watches as (
     select *, TRUE as watch from Watching where UID = 'j12cole'
 )
-select j.*, coalesce(w.watch, false) from goodjobs j left join watches w on w.JID = j.JID
-order by j.jid;
+select j.*, g.oacount, g.int1count, g.int2count, g.int3count, g.offercount, coalesce(w.watch, false) watched
+from jobs j left join goodjobs g on j.jid = g.jid left join watches w on j.jid = w.jid order by j.jid
