@@ -65,7 +65,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER delete_unsuccessful_contributions
+CREATE TRIGGER delete_unsuccessful_contributions_trigger
 AFTER INSERT OR UPDATE ON Contributions
 FOR EACH ROW
 EXECUTE FUNCTION delete_unsuccessful_contributions();
@@ -103,7 +103,7 @@ BEFORE INSERT ON Stage
 FOR EACH ROW
 EXECUTE FUNCTION enforce_single_row();
 
-INSERT INTO Stage (IsRankingStage) VALUES (true);
+INSERT INTO Stage (IsRankingStage) VALUES (false);
 
 UPDATE Stage SET IsRankingStage = false;
 UPDATE Stage SET IsRankingStage = true;
