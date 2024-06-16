@@ -16,7 +16,7 @@ TABLE_NAMES=(
 )
 
 CSV_FILES=(
-	"sql/sample/jobs_short.csv"
+	"sql/sample/jobs.csv"
 	"sql/sample/users.csv"
 	"sql/sample/admins.csv"
 	"sql/sample/watching.csv"
