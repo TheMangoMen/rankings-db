@@ -3,8 +3,9 @@ set -o allexport
 source .env
 set +o allexport
 
-psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -f sql/drop_tables.sql
+psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -f sql/create_types.sql
 psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -f sql/create_tables.sql
+psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -f sql/create_triggers.sql
 
 TABLE_NAMES=(
 	"jobs"

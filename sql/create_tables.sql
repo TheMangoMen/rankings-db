@@ -1,9 +1,6 @@
-begin;
+BEGIN;
 
-DROP TYPE IF EXISTS SeasonEnum;
-
-CREATE TYPE SeasonEnum as ENUM ('Fall', 'Spring', 'Winter');
-
+DROP TABLE IF EXISTS Jobs;
 CREATE TABLE Jobs (
     JID INT PRIMARY KEY,
     Company VARCHAR(255) NOT NULL,
@@ -21,27 +18,27 @@ CREATE TABLE Jobs (
     )
 );
 
-CREATE TABLE Users (UID VARCHAR(50) PRIMARY KEY);
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users (UID VARCHAR(8) PRIMARY KEY);
 
+DROP TABLE IF EXISTS Admins;
 CREATE TABLE Admins (
-    UID VARCHAR(50) PRIMARY KEY,
+    UID VARCHAR(8) PRIMARY KEY,
     FOREIGN KEY (UID) REFERENCES Users(UID) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Watching;
 CREATE TABLE Watching (
-    UID VARCHAR(50) NOT NULL,
+    UID VARCHAR(8) NOT NULL,
     JID INT NOT NULL,
     PRIMARY KEY (UID, JID),
     FOREIGN KEY (UID) REFERENCES Users(UID) ON DELETE CASCADE,
     FOREIGN KEY (JID) REFERENCES Jobs(JID) ON DELETE CASCADE
 );
 
-DROP TYPE IF EXISTS EmployerRankingEnum;
-
-CREATE TYPE EmployerRankingEnum as ENUM ('Offer', 'Ranked');
-
+DROP TABLE IF EXISTS Contributions;
 CREATE TABLE Contributions (
-    UID VARCHAR(50) NOT NULL,
+    UID VARCHAR(8) NOT NULL,
     JID INT NOT NULL,
     OA BOOLEAN NOT NULL DEFAULT FALSE,
     InterviewStage INT NOT NULL DEFAULT 0,
@@ -55,21 +52,7 @@ CREATE TABLE Contributions (
     )
 );
 
-CREATE OR REPLACE FUNCTION delete_unsuccessful_contributions()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = FALSE THEN
-        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
-    END IF;
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER delete_unsuccessful_contributions_trigger
-AFTER INSERT OR UPDATE ON Contributions
-FOR EACH ROW
-EXECUTE FUNCTION delete_unsuccessful_contributions();
-
+DROP TABLE IF EXISTS Rankings;
 CREATE TABLE Rankings (
     UID VARCHAR(50) NOT NULL,
     JID INT NOT NULL,
@@ -84,29 +67,28 @@ CREATE TABLE Rankings (
     )
 );
 
+DROP TABLE IF EXISTS Stage;
 CREATE TABLE Stage (
     IsRankingStage BOOLEAN NOT NULL
 );
+INSERT INTO Stage (IsRankingStage) VALUES (true);
 
-CREATE OR REPLACE FUNCTION enforce_single_row()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF (SELECT COUNT(*) FROM Stage) >= 1 THEN
-        RAISE EXCEPTION 'Only one row is allowed in the Stage table';
-    END IF;
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
+DROP TABLE IF EXISTS Year;
+CREATE TABLE Year (
+    Year INT NOT NULL
+);
+INSERT INTO Year (Year) VALUES (2024);
 
-CREATE TRIGGER single_row_trigger
-BEFORE INSERT ON Stage
-FOR EACH ROW
-EXECUTE FUNCTION enforce_single_row();
+DROP TABLE IF EXISTS Season;
+CREATE TABLE Season (
+    Season SeasonEnum NOT NULL
+);
+INSERT INTO Season (Season) VALUES ('Fall');
 
-INSERT INTO Stage (IsRankingStage) VALUES (false);
+DROP TABLE IF EXISTS Cycle;
+CREATE TABLE Cycle (
+    Cycle INT NOT NULL
+);
+INSERT INTO Cycle (Cycle) VALUES (2);
 
-UPDATE Stage SET IsRankingStage = false;
-UPDATE Stage SET IsRankingStage = true;
-UPDATE Stage SET IsRankingStage = false;
-
-commit;
+COMMIT;
