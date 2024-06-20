@@ -88,4 +88,20 @@ BEFORE INSERT ON Cycle
 FOR EACH ROW
 EXECUTE FUNCTION enforce_cycle_single_row();
 
+-- ContributionLogs
+CREATE OR REPLACE FUNCTION log_contribution_change()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO ContributionLogs (LogTime, UID, JID, OA, InterviewStage, OfferCall)
+    VALUES (CURRENT_TIMESTAMP, NEW.UID, NEW.JID, NEW.OA, NEW.InterviewStage, NEW.OfferCall);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS log_contribution_change_trigger ON Contributions;
+CREATE TRIGGER log_contribution_change_trigger
+BEFORE INSERT OR UPDATE ON Contributions
+FOR EACH ROW
+EXECUTE FUNCTION log_contribution_change();
+
 COMMIT;
