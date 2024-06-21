@@ -92,7 +92,7 @@ EXECUTE FUNCTION enforce_cycle_single_row();
 CREATE OR REPLACE FUNCTION log_contribution_change()
 RETURNS TRIGGER AS $$
 BEGIN
-    INSERT INTO ContributionLogs (LogTime, UID, JID, OA, InterviewStage, OfferCall)
+    INSERT INTO ContributionsLogs (LogTime, UID, JID, OA, InterviewStage, OfferCall)
     VALUES (CURRENT_TIMESTAMP, NEW.UID, NEW.JID, NEW.OA, NEW.InterviewStage, NEW.OfferCall);
     RETURN NEW;
 END;

@@ -21,6 +21,9 @@ SET
     offercall = EXCLUDED.offercall
 RETURNING *;
 
+-- this will result in 3 logs due to the first one on first insert, second one on failed insert, third one on successful update
+SELECT * FROM ContributionsLogs ORDER BY LogID DESC LIMIT 3;
+
 -- upsert ranking
 INSERT INTO
     Rankings (uid, jid, userranking, employerranking)
