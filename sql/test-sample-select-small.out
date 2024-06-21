@@ -1,0 +1,21 @@
+   uid   |  jid   | oa | interviewstage | offercall 
+---------+--------+----+----------------+-----------
+ j12cole | 362791 | t  |              3 | t
+(1 row)
+
+   uid   |  jid   | userranking | employerranking 
+---------+--------+-------------+-----------------
+ j12cole | 362791 |           1 | Offer
+ aopal   | 362791 |           1 | Offer
+(2 rows)
+
+ isrankingstage 
+----------------
+ t
+(1 row)
+
+   uid   
+---------
+ j12cole
+(1 row)
+

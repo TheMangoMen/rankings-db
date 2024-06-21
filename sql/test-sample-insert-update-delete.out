@@ -1,0 +1,42 @@
+ uid  |  jid   | oa | interviewstage | offercall 
+------+--------+----+----------------+-----------
+ m4xu | 369074 | t  |              2 | f
+(1 row)
+
+INSERT 0 1
+ uid  |  jid   | oa | interviewstage | offercall 
+------+--------+----+----------------+-----------
+ m4xu | 369074 | t  |              3 | t
+(1 row)
+
+INSERT 0 1
+ uid  |  jid   | userranking | employerranking 
+------+--------+-------------+-----------------
+ m4xu | 369074 |          -1 | Offer
+(1 row)
+
+INSERT 0 1
+ uid  |  jid   | userranking | employerranking 
+------+--------+-------------+-----------------
+ m4xu | 369074 |           1 | Offer
+(1 row)
+
+INSERT 0 1
+INSERT 0 1
+  uid   
+--------
+ njchen
+(1 row)
+
+  uid   |  jid   
+--------+--------
+ njchen | 369074
+(1 row)
+
+INSERT 0 1
+  uid   |  jid   
+--------+--------
+ njchen | 369074
+(1 row)
+
+DELETE 1

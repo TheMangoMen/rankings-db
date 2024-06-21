@@ -1,0 +1,24 @@
+  jid   |                         title                          |        company         | location  | openings | season | year | cycle | oacount | int1count | int2count | int3count | offercount | watching 
+--------+--------------------------------------------------------+------------------------+-----------+----------+--------+------+-------+---------+-----------+-----------+-----------+------------+----------
+ 369074 | Software Engineering Co-op                             | Apple Inc              | N/A       |        5 | Fall   | 2024 |     1 |       1 |         1 |         0 |         0 |          0 | f
+ 362791 | Software Engineering Intern                            | Bloomberg              | New York  |       10 | Fall   | 2024 |     1 |       1 |         1 |         1 |         1 |          1 | t
+ 367434 | Software Engineering Intern                            | Cloudflare Inc         | Austin    |        8 | Fall   | 2024 |     1 |       0 |         0 |         0 |         0 |          0 | f
+ 365291 | Software Engineering Intern                            | Meta                   | N/A       |       25 | Fall   | 2024 |     1 |       2 |         2 |         2 |         0 |          1 | t
+ 367039 | Software Development, Co-op (Traffic Analytics)        | Miovision              | Kitchener |        1 | Fall   | 2024 |     1 |       1 |         1 |         0 |         0 |          0 | f
+ 367037 | Software Development, Co-op (Adaptive Traffic Control) | Miovision              | Kitchener |        1 | Fall   | 2024 |     1 |       0 |         0 |         0 |         0 |          0 | f
+ 366732 | Performance Engineering                                | Splunk Inc             | San Jose  |        1 | Fall   | 2024 |     1 |       1 |         1 |         1 |         0 |          1 | f
+ 364259 | Full Stack Web Developer (Software Engineering)        | TradableBits Media inc | Vancouver |        2 | Fall   | 2024 |     1 |       0 |         0 |         0 |         0 |          0 | f
+(8 rows)
+
+  jid   |                         title                          |        company         | location  | openings | season | year | cycle | ranked | taking | nottaking | watching 
+--------+--------------------------------------------------------+------------------------+-----------+----------+--------+------+-------+--------+--------+-----------+----------
+ 369074 | Software Engineering Co-op                             | Apple Inc              | N/A       |        5 | Fall   | 2024 |     1 |      2 |      1 |         0 | f
+ 362791 | Software Engineering Intern                            | Bloomberg              | New York  |       10 | Fall   | 2024 |     1 |      2 |      2 |         0 | t
+ 367434 | Software Engineering Intern                            | Cloudflare Inc         | Austin    |        8 | Fall   | 2024 |     1 |      2 |      0 |         0 | f
+ 365291 | Software Engineering Intern                            | Meta                   | N/A       |       25 | Fall   | 2024 |     1 |      1 |      1 |         0 | t
+ 367039 | Software Development, Co-op (Traffic Analytics)        | Miovision              | Kitchener |        1 | Fall   | 2024 |     1 |      1 |      0 |         0 | f
+ 367037 | Software Development, Co-op (Adaptive Traffic Control) | Miovision              | Kitchener |        1 | Fall   | 2024 |     1 |      1 |      0 |         0 | f
+ 366732 | Performance Engineering                                | Splunk Inc             | San Jose  |        1 | Fall   | 2024 |     1 |      1 |      1 |         0 | f
+ 364259 | Full Stack Web Developer (Software Engineering)        | TradableBits Media inc | Vancouver |        2 | Fall   | 2024 |     1 |      1 |      0 |         0 | f
+(8 rows)
+
