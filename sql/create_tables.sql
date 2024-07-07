@@ -109,3 +109,14 @@ CREATE TABLE ContributionsLogs (
 );
 
 COMMIT;
+
+DROP TABLE IF EXISTS AnalyticsStatuses;
+CREATE TABLE AnalyticsStatuses (
+    StatusID VARCHAR(256) PRIMARY KEY,
+    StatusName VARCHAR(256) NOT NULL,
+    Ranking INT NOT NULL UNIQUE
+);
+INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('nothing', 'Nothing', 1);
+INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('oa', 'OA', 2);
+INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('interview', 'Interview', 3);
+INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('offercall', 'Offer Call', 4);
