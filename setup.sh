@@ -14,6 +14,7 @@ TABLE_NAMES=(
 	"watching"
 	"contributions"
 	"rankings"
+	"tags"
 )
 
 CSV_FILES=(
@@ -23,6 +24,7 @@ CSV_FILES=(
 	"sql/sample/watching.csv"
 	"sql/sample/contributions.csv"
 	"sql/sample/rankings.csv"
+	"sql/sample/tags.csv"
 )
 
 # Loop over arrays in sync (assuming both arrays have the same length)
