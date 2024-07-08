@@ -88,6 +88,10 @@ INSERT INTO Season (Season) VALUES ('Fall');
 DROP TABLE IF EXISTS Cycle;
 CREATE TABLE Cycle (
     Cycle INT NOT NULL
+    CHECK (
+        Cycle >= 1
+        AND Cycle <= 6
+    )
 );
 INSERT INTO Cycle (Cycle) VALUES (2);
 
