@@ -52,6 +52,23 @@ CREATE TABLE Contributions (
     )
 );
 
+DROP TABLE IF EXISTS Tags;
+CREATE TABLE Tags (
+    UID VARCHAR(8) NOT NULL,
+    JID INT NOT NULL,
+    OA1 DifficultyEnum DEFAULT NULL,
+    OA2 LengthEnum DEFAULT NULL,
+    INT1 VibeEnum DEFAULT NULL,
+    INT2 TechnicalEnum DEFAULT NULL,
+    OFFER1 FLOAT DEFAULT NULL,
+    PRIMARY KEY (UID, JID),
+    FOREIGN KEY (UID, JID) REFERENCES Contributions(UID, JID) ON DELETE CASCADE,
+    CHECK (
+        OFFER1 >= 0
+        AND OFFER1 <= 200
+    )
+);
+
 DROP TABLE IF EXISTS Rankings;
 CREATE TABLE Rankings (
     UID VARCHAR(50) NOT NULL,
@@ -71,7 +88,7 @@ DROP TABLE IF EXISTS Stage;
 CREATE TABLE Stage (
     IsRankingStage BOOLEAN NOT NULL
 );
-INSERT INTO Stage (IsRankingStage) VALUES (true);
+INSERT INTO Stage (IsRankingStage) VALUES (false);
 
 DROP TABLE IF EXISTS Year;
 CREATE TABLE Year (
