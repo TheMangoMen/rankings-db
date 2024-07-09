@@ -1,3 +1,5 @@
+# ./setup.sh for production
+# ./setup.sh -s for sample
 # add .pgpass
 set -o allexport
 source .env
@@ -17,7 +19,7 @@ TABLE_NAMES=(
 	"tags"
 )
 
-CSV_FILES=(
+SAMPLE_CSV_FILES=(
 	"sql/sample/jobs.csv"
 	"sql/sample/users.csv"
 	"sql/sample/admins.csv"
@@ -26,6 +28,36 @@ CSV_FILES=(
 	"sql/sample/rankings.csv"
 	"sql/sample/tags.csv"
 )
+
+PRODUCTION_CSV_FILES=(
+	"sql/production/prod_jobs.csv"
+	"sql/production/prod_users.csv"
+	"sql/production/prod_admins.csv"
+	"sql/production/prod_watching.csv"
+	"sql/production/prod_contributions.csv"
+	"sql/production/prod_rankings.csv"
+	"sql/production/prod_tags.csv"
+)
+
+data_type="production"
+while getopts "s" opt; do
+	case $opt in
+	s)
+		data_type="sample"
+		;;
+	*)
+		echo "Usage: $0 [-s]"
+		echo "  -s    Use sample data (default is production data)"
+		exit 1
+		;;
+	esac
+done
+
+if [ "$data_type" = "sample" ]; then
+	CSV_FILES=("${SAMPLE_CSV_FILES[@]}")
+else
+	CSV_FILES=("${PRODUCTION_CSV_FILES[@]}")
+fi
 
 # Loop over arrays in sync (assuming both arrays have the same length)
 for ((i = 0; i < ${#TABLE_NAMES[@]}; i++)); do

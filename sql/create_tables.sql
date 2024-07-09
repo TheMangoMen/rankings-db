@@ -56,16 +56,16 @@ DROP TABLE IF EXISTS Tags;
 CREATE TABLE Tags (
     UID VARCHAR(8) NOT NULL,
     JID INT NOT NULL,
-    OA1 DifficultyEnum DEFAULT NULL,
-    OA2 LengthEnum DEFAULT NULL,
-    INT1 VibeEnum DEFAULT NULL,
-    INT2 TechnicalEnum DEFAULT NULL,
-    OFFER1 FLOAT DEFAULT NULL,
+    OADifficulty DifficultyEnum DEFAULT NULL,
+    OALength LengthEnum DEFAULT NULL,
+    InterviewVibe VibeEnum DEFAULT NULL,
+    InterviewTechnical TechnicalEnum DEFAULT NULL,
+    OfferComp FLOAT DEFAULT NULL,
     PRIMARY KEY (UID, JID),
     FOREIGN KEY (UID, JID) REFERENCES Contributions(UID, JID) ON DELETE CASCADE,
     CHECK (
-        OFFER1 >= 0
-        AND OFFER1 <= 200
+        OfferComp >= 0
+        AND OfferComp <= 200
     )
 );
 
@@ -110,7 +110,7 @@ CREATE TABLE Cycle (
         AND Cycle <= 6
     )
 );
-INSERT INTO Cycle (Cycle) VALUES (2);
+INSERT INTO Cycle (Cycle) VALUES (1);
 
 DROP TABLE IF EXISTS ContributionsLogs;
 CREATE TABLE ContributionsLogs (
@@ -129,8 +129,6 @@ CREATE TABLE ContributionsLogs (
     )
 );
 
-COMMIT;
-
 DROP TABLE IF EXISTS AnalyticsStatuses;
 CREATE TABLE AnalyticsStatuses (
     StatusID VARCHAR(256) PRIMARY KEY,
@@ -141,3 +139,5 @@ INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('nothing', 
 INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('oa', 'OA', 2);
 INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('interview', 'Interview', 3);
 INSERT INTO AnalyticsStatuses(StatusID, StatusName, Ranking) VALUES ('offercall', 'Offer Call', 4);
+
+COMMIT;
