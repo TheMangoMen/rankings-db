@@ -1,0 +1,24 @@
+        company         | oadifficulty |   oalength   | interviewvibe | interviewtechnical | offercomp | count 
+------------------------+--------------+--------------+---------------+--------------------+-----------+-------
+ Miovision              | Medium       | 1 to 2 Hours | Good          | Technical          |        20 |     1
+ TradableBits Media inc |              |              |               |                    |           |     1
+ Meta                   | Easy         | Under 1 Hour | Bad           | Non-technical      |           |     1
+ Meta                   | Hard         | Over 2 Hours | Neutral       | Somewhat           |        12 |     1
+ Splunk Inc             | Hard         | Over 2 Hours | Neutral       | Somewhat           |        20 |     1
+ Cloudflare Inc         |              |              |               |                    |           |     1
+ Apple Inc              | Medium       | 1 to 2 Hours | Good          | Technical          |        20 |     1
+(7 rows)
+
+   uid   |  jid   | oadifficulty |   oalength   | interviewvibe | interviewtechnical | offercomp 
+---------+--------+--------------+--------------+---------------+--------------------+-----------
+ j12cole | 362791 | Medium       | 1 to 2 Hours | Good          | Technical          |        50
+(1 row)
+
+INSERT 0 1
+   uid   |  jid   | oadifficulty |   oalength   | interviewvibe | interviewtechnical | offercomp 
+---------+--------+--------------+--------------+---------------+--------------------+-----------
+ j12cole | 362791 | Medium       | 1 to 2 Hours | Good          | Technical          |       100
+(1 row)
+
+INSERT 0 1
+DELETE 1

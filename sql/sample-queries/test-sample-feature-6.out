@@ -1,0 +1,16 @@
+   status   | count 
+------------+-------
+ Nothing    |     0
+ OA         |     0
+ Interview  |     0
+ Offer Call |     2
+(4 rows)
+
+   status   | count 
+------------+-------
+ Nothing    |     0
+ OA         |     0
+ Interview  |     0
+ Offer Call |     2
+(4 rows)
+
