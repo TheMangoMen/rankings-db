@@ -1,0 +1,34 @@
+  uid   |  jid   | oa | interviewstage | offercall 
+--------+--------+----+----------------+-----------
+ njchen | 368822 | t  |              0 | f
+(1 row)
+
+INSERT 0 1
+ count 
+-------
+     1
+(1 row)
+
+  uid   |  jid   | oa | interviewstage | offercall 
+--------+--------+----+----------------+-----------
+ njchen | 368822 | t  |              2 | f
+(1 row)
+
+INSERT 0 1
+ count 
+-------
+     1
+(1 row)
+
+  uid   |  jid   | oa | interviewstage | offercall 
+--------+--------+----+----------------+-----------
+ njchen | 368822 | t  |              2 | t
+(1 row)
+
+INSERT 0 1
+ count 
+-------
+     1
+(1 row)
+
+DELETE 1

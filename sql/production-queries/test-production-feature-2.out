@@ -1,0 +1,12 @@
+  uid   |  jid   
+--------+--------
+ njchen | 362466
+(1 row)
+
+INSERT 0 1
+ uid | jid 
+-----+-----
+(0 rows)
+
+INSERT 0 0
+DELETE 1

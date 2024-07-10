@@ -1,0 +1,16 @@
+  company  | oadifficulty |   oalength   | interviewvibe | interviewtechnical | offercomp | count 
+-----------+--------------+--------------+---------------+--------------------+-----------+-------
+ Zynga Inc | Medium       | Over 2 Hours | Bad           | Somewhat           |     30.45 |     1
+ Zynga Inc |              |              |               |                    |           |     1
+ Zynga Inc | Easy         | Under 1 Hour | Good          | Fully              |     50.32 |     1
+ Zynga Inc | Hard         | 1 to 2 Hours | Neutral       | Non-technical      |     50.34 |     1
+ Zynga Inc | Easy         | Over 2 Hours | Neutral       | Fully              |    100.02 |     1
+(5 rows)
+
+  uid   |  jid   | oadifficulty |   oalength   | interviewvibe | interviewtechnical | offercomp 
+--------+--------+--------------+--------------+---------------+--------------------+-----------
+ njchen | 366111 | Medium       | Over 2 Hours | Bad           | Somewhat           |        45
+(1 row)
+
+INSERT 0 1
+DELETE 1
