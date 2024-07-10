@@ -1,0 +1,28 @@
+  jid   |                      title                       |       company        |   location    | openings | season | year | cycle | oacount | int1count | int2count | int3count | offercount | watching 
+--------+--------------------------------------------------+----------------------+---------------+----------+--------+------+-------+---------+-----------+-----------+-----------+------------+----------
+ 368351 | Machine Learning Engineering Intern              | Cohere               | Toronto       |        5 | Fall   | 2024 |     1 |       5 |         0 |         0 |         0 |          0 | t
+ 367802 | Software Engineering Intern                      | Waabi Innovation Inc | Toronto       |        4 | Fall   | 2024 |     1 |       0 |         1 |         0 |         0 |          1 | t
+ 366122 | Software Engineering Intern - Central Technology | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |       2 |         2 |         2 |         2 |          2 | t
+ 367804 | Research Internship                              | Waabi Innovation Inc | Toronto       |        4 | Fall   | 2024 |     1 |       5 |         0 |         0 |         0 |          0 | t
+ 368822 | Software Engineering Intern                      | Datacurve Inc.       | San Francisco |        1 | Fall   | 2024 |     1 |       0 |         5 |         5 |         0 |          0 | t
+ 368897 | Intern, Software Developer                       | Wealthsimple         | Toronto       |        1 | Fall   | 2024 |     1 |       2 |         2 |         2 |         0 |          0 | t
+ 366111 | Machine Learning Engineering Intern (Analytics)  | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |       0 |         5 |         4 |         2 |          1 | t
+ 366118 | Software Engineering Intern (Zynga Poker)        | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |       4 |         3 |         2 |         0 |          1 | t
+ 362721 | DITA CCMS Associate Administrator                | DEMATIC              | Waterloo      |        1 | Fall   | 2024 |     1 |       0 |         0 |         0 |         0 |          0 | f
+ 362720 | Translation and CCMS Associate Administrator     | DEMATIC              | Waterloo      |        1 | Fall   | 2024 |     1 |       0 |         0 |         0 |         0 |          0 | f
+(10 rows)
+
+  jid   |                      title                       |       company        |   location    | openings | season | year | cycle | ranked | taking | nottaking | watching 
+--------+--------------------------------------------------+----------------------+---------------+----------+--------+------+-------+--------+--------+-----------+----------
+ 368351 | Machine Learning Engineering Intern              | Cohere               | Toronto       |        5 | Fall   | 2024 |     1 |      0 |      0 |         0 | t
+ 367802 | Software Engineering Intern                      | Waabi Innovation Inc | Toronto       |        4 | Fall   | 2024 |     1 |      1 |      0 |         0 | t
+ 366122 | Software Engineering Intern - Central Technology | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |      2 |      0 |         0 | t
+ 367804 | Research Internship                              | Waabi Innovation Inc | Toronto       |        4 | Fall   | 2024 |     1 |      0 |      0 |         0 | t
+ 368822 | Software Engineering Intern                      | Datacurve Inc.       | San Francisco |        1 | Fall   | 2024 |     1 |      0 |      0 |         0 | t
+ 368897 | Intern, Software Developer                       | Wealthsimple         | Toronto       |        1 | Fall   | 2024 |     1 |      0 |      0 |         0 | t
+ 366111 | Machine Learning Engineering Intern (Analytics)  | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |      3 |      0 |         1 | t
+ 366118 | Software Engineering Intern (Zynga Poker)        | Zynga Inc            | Toronto       |        1 | Fall   | 2024 |     1 |      4 |      1 |         0 | t
+ 362721 | DITA CCMS Associate Administrator                | DEMATIC              | Waterloo      |        1 | Fall   | 2024 |     1 |      0 |      0 |         0 | f
+ 362720 | Translation and CCMS Associate Administrator     | DEMATIC              | Waterloo      |        1 | Fall   | 2024 |     1 |      0 |      0 |         0 | f
+(10 rows)
+
