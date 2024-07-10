@@ -16,6 +16,6 @@ DROP TYPE IF EXISTS VibeEnum;
 CREATE TYPE VibeEnum as ENUM ('Bad', 'Neutral', 'Good', '');
 
 DROP TYPE IF EXISTS TechnicalEnum;
-CREATE TYPE TechnicalEnum as ENUM ('Non-technical', 'Somewhat', 'Fully', '');
+CREATE TYPE TechnicalEnum as ENUM ('Non-technical', 'Somewhat', 'Technical', '');
 
 COMMIT;
