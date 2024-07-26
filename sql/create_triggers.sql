@@ -4,8 +4,8 @@ CREATE OR REPLACE FUNCTION delete_unsuccessful_contributions()
 RETURNS TRIGGER AS $$
 BEGIN
     IF NEW.OA = FALSE AND NEW.InterviewStage = 0 AND NEW.OfferCall = FALSE THEN
-        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
         DELETE FROM Tags WHERE UID = NEW.UID AND JID = NEW.JID;
+        DELETE FROM Contributions WHERE UID = NEW.UID AND JID = NEW.JID;
     END IF;
     RETURN NEW;
 END;
